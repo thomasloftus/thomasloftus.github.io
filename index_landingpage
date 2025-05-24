@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thomas Loftus III - Portfolio</title>
+    <title>Thomas Loftus III - Resume</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Custom styles for professional color palette, soft shadows, and rounded corners */
         :root {
@@ -23,216 +22,613 @@
             padding: 1rem;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align to top */
-            min-height: 100vh; /* Ensure it takes full viewport height */
-            background-color: var(--primary-light);
+            background-color: var(--primary-light); /* Added back a subtle page background */
         }
 
-        .landing-container {
-            max-width: 800px; /* Max width for consistency with resume */
-            width: 100%;
-            background-color: var(--card-bg);
+        .resume-container {
+            max-width: 800px; /* Max width for a standard resume layout */
+            width: 100%; /* Ensure it takes full width on smaller screens */
+            background-color: var(--card-bg); /* Container provides the main background */
             padding: 2rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Medium shadow */
             border-radius: 0.75rem; /* rounded-xl */
-            margin-top: 2rem; /* Add some margin from the top */
-            margin-bottom: 2rem; /* Add some margin at the bottom */
         }
 
         h1, h2 {
             color: var(--primary-dark);
             font-weight: bold;
-            text-align: center;
         }
 
         h1 {
-            font-size: 2.5rem; /* Slightly larger for a landing page */
-            margin-bottom: 0.75rem; /* Adjusted margin below name */
+            font-size: 2.25rem; /* text-4xl */
+            margin-bottom: 0.5rem;
+            white-space: nowrap; /* Prevent text wrapping on screen */
+            overflow: hidden; /* Hide overflowing text on screen */
+            text-overflow: ellipsis; /* Add ellipsis to truncated text on screen */
+            text-align: center; /* Center justify title for all screen sizes */
         }
 
         h2 {
-            font-size: 1.75rem; /* Slightly larger for section headings */
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.75rem;
+            font-size: 1.5rem; /* text-2xl */
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
             border-bottom: 2px solid var(--secondary-accent);
         }
 
-        .intro-text {
-            font-size: 1.125rem; /* text-lg */
-            text-align: center;
-            margin-bottom: 2rem;
-            color: #374151; /* gray-700 */
+        /* Specific style for Contact Information heading to center align */
+        .contact-section h2 {
+            text-align: center; /* Center align the contact section heading */
         }
 
-        .section-card {
+
+        .section {
             margin-bottom: 2rem;
             padding: 1.5rem;
             background-color: var(--section-bg);
             border-radius: 0.5rem; /* rounded-lg */
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Center content within the card */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Small shadow */
         }
 
-        .section-card h3 {
-            font-size: 1.25rem; /* text-xl */
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
+        /* Specific adjustment for Education section margin */
+        .section:has(h2:contains("Education")) {
+             margin-bottom: 1.5rem; /* Reduced margin for the entire Education section */
         }
 
-        .section-card a {
-            display: inline-block; /* Allow padding */
-            background-color: var(--secondary-accent);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+        .contact-info {
+            font-size: 1rem;
+            color: #4b5563; /* gray-600 */
         }
 
-        .section-card a:hover {
-            background-color: #2563eb; /* Darker blue on hover */
-            transform: translateY(-2px); /* Slight lift effect */
+        .summary-text {
+            margin-bottom: 1.5rem;
+            color: #374151; /* gray-700 */
         }
 
-        .project-placeholder {
+        .core-competencies ul {
+            list-style: none; /* Remove default list styling */
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 0.75rem;
+        }
+
+        /* Simplified styling for Core Competencies list items - removed bullet styles */
+        .core-competencies li {
+            background-color: var(--card-bg);
+            padding: 0.75rem 1rem; /* Keep padding */
+            border-radius: 0.25rem; /* Keep rounded corners */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Keep small shadow for separation */
+            border: 1px solid #d1d5db; /* Subtle border for definition */
+             margin-left: 0; /* Ensure no left margin from list style */
+        }
+
+
+        .achievements ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0; /* Remove default padding */
+            margin-left: 0; /* Remove default margin */
+            color: #374151; /* gray-700 */
+        }
+
+        .achievements li {
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-entry {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #d1d5db; /* gray-300 */
+        }
+
+        .experience-entry:last-child {
+            border-bottom: none; /* No border for the last entry */
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .job-title {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* semibold */
+            margin-bottom: 0.25rem;
+        }
+
+        .company-info {
+            font-size: 1rem;
+            color: #4b5563; /* gray-600 */
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-details ul {
+            list-style: disc;
+            margin-left: 1.25rem; /* pl-5 */
+            color: #374151; /* gray-700 */
+        }
+
+        .experience-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Technical Skills layout - Card Grid */
+        .technical-skills .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid for cards */
+            gap: 1rem; /* Gap between cards */
+        }
+
+        .technical-skills .skill-card {
             background-color: var(--card-bg);
             padding: 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-            text-align: center;
-            color: #4b5563; /* gray-600 */
-            font-style: italic;
-            margin-bottom: 1rem;
-            border: 1px dashed #d1d5db; /* Dashed border for placeholder */
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid for projects */
-            gap: 1.5rem; /* Space between project cards */
-            width: 100%; /* Ensure grid takes full width of parent */
-        }
-
-        /* Header Contact Info Styling - now for the separate contact section */
-        .contact-icons-section .header-contact-info {
+            border-radius: 0.5rem; /* rounded-lg */
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); /* Small shadow */
+            border: 1px solid #d1d5db; /* Subtle border */
             display: flex;
-            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-            justify-content: center;
-            gap: 2.5rem; /* Increased space between icon links */
-            margin-top: 1rem; /* Adjusted margin */
+            flex-direction: column;
         }
 
-        .contact-icons-section .header-contact-info a {
-            color: var(--secondary-accent); /* Use accent color for icons */
-            text-decoration: none;
-            font-weight: normal;
-            box-shadow: none;
-            padding: 0;
-            transition: color 0.3s ease, transform 0.2s ease; /* Smooth transition for color and transform */
+        .technical-skills .skill-category-title {
+            font-weight: bold;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem; /* Space below title */
+            font-size: 1rem; /* Reduced font size */
         }
 
-        .contact-icons-section .header-contact-info a:hover {
-            color: #2563eb; /* Darker blue on hover */
-            transform: translateY(-2px); /* Slight lift effect on hover */
-            text-decoration: none; /* Ensure no underline on hover */
-            background-color: transparent; /* Ensure no background on hover */
+        .technical-skills .skill-list-items {
+            color: #374151; /* gray-700 */
+            font-size: 0.9rem; /* Slightly smaller text for list items */
+            line-height: 1.4; /* Adjusted line height */
         }
 
-        /* Print specific styles - all print media settings disregarded as requested */
+
+         .education-entry {
+            margin-bottom: 0.5rem; /* Reduced margin */
+            padding-bottom: 0.5rem; /* Reduced padding */
+            border-bottom: 1px solid #d1d5db; /* gray-300 */
+        }
+
+        .education-entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .degree {
+            font-size: 1.125rem; /* text-lg */
+            font-weight: 600; /* semibold */
+            margin-bottom: 0.1rem; /* Reduced margin */
+        }
+
+        .university-info {
+             font-size: 1rem;
+            color: #4b5563; /* gray-600 */
+            margin-bottom: 0.5rem; /* Reduced margin */
+        }
+
+         .previous-experience-summary {
+            margin-bottom: 1.5rem;
+            color: #374151; /* gray-700 */
+         }
+
+         .previous-experience-entry {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #d1d5db; /* gray-300 */
+         }
+
+         .previous-experience-entry:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+         }
+
+         .previous-job-title {
+             font-size: 1rem;
+            font-weight: 600; /* semibold */
+            margin-bottom: 0.25rem;
+         }
+
+         .previous-company-info {
+             font-size: 0.875rem; /* text-sm */
+            color: #4b5563; /* gray-600 */
+            margin-bottom: 0.5rem;
+         }
+
+         .previous-experience-details ul {
+            list-style: disc;
+            margin-left: 1.25rem; /* pl-5 */
+            color: #374151; /* gray-700 */
+            font-size: 0.875rem; /* text-sm */
+         }
+
+         .previous-experience-details li {
+            margin-bottom: 0.3rem;
+         }
+
+         /* Header layout using flexbox */
+         .resume-header {
+            display: flex;
+            flex-direction: column; /* Stack items vertically on small screens */
+            align-items: center; /* Center align items */
+            margin-bottom: 1.5rem; /* Adjusted margin */
+            padding: 0 1.5rem; /* Consistent horizontal padding with sections */
+         }
+
+         /* New Contact Section Styling */
+         .contact-section .space-y-2 {
+            display: flex; /* Use flexbox for contact links */
+            flex-direction: column; /* Stack links vertically */
+            align-items: center; /* Changed to center align items */
+         }
+
+         .contact-section .space-y-2 a {
+             color: var(--secondary-accent); /* Blue link color */
+             text-decoration: none; /* No underline by default */
+         }
+
+         .contact-section .space-y-2 a:hover {
+             text-decoration: underline; /* Underline on hover */
+         }
+
+        /* Removed "cone down" effect styles */
+        .contact-section .linkedin-cone-item,
+        .contact-section .personal-site-cone-item {
+            padding: 0; /* Reset padding */
+            background-color: transparent; /* Reset background */
+            border-radius: 0; /* Reset border-radius */
+            margin-bottom: 0; /* Reset margin */
+            display: block; /* Ensure they take full width for centering */
+            min-width: auto; /* Reset min-width */
+            text-align: center; /* Ensure text is centered */
+        }
+
+        /* Ensure the links themselves don't break the layout */
+        .contact-section .space-y-2 a {
+            white-space: nowrap; /* Prevent links from wrapping */
+        }
+
+
+        /* Print specific styles */
         @media print {
             body {
                 background-color: #fff;
-                padding: 0;
+                /* Set paper size for US Letter */
+                width: 8.5in;
+                height: 11in;
+                padding: 0.6in 0.5in; /* Increased top and bottom padding for print margins */
                 margin: 0;
-                display: block;
-                min-height: auto; /* Reset min-height for print */
+                display: block; /* Override flex for print */
+                -webkit-print-color-adjust: exact; /* For background colors to print */
+                color-adjust: exact;
+                /* Apply scaling to the body */
+                transform: scale(0.97); /* Scale down the entire content for print */
+                transform-origin: top left; /* Scale from the top-left corner */
+                overflow: hidden; /* Hide any potential scrollbars due to scaling */
             }
-            .landing-container {
+            .resume-container {
+                max-width: none;
+                width: 100%;
+                padding: 0;
                 box-shadow: none;
                 border-radius: 0;
-                padding: 0;
-                margin: 0;
+                margin: 0; /* Remove any margin */
             }
-            .print-hidden {
-                display: none !important;
-            }
-            h1, h2 {
-                text-align: left; /* Adjust text alignment for print */
-                margin-bottom: 0.5rem;
-                padding-bottom: 0.25rem;
-                font-size: 12pt;
+            .section {
+                background-color: #fff; /* Ensure white background for sections */
+                box-shadow: none;
+                padding: 0.1rem 0.5rem; /* Further reduced padding for print margins */
+                margin-bottom: 0.05rem; /* Adjusted margin between sections for tighter fit */
+                border-radius: 0;
             }
             h1 {
-                font-size: 16pt;
+                font-size: 14pt; /* Adjusted font for main title in print */
+                margin-bottom: 0.05rem; /* Reduced margin */
+                white-space: normal; /* Allow wrapping for print */
+                overflow: visible; /* Don't hide for print */
+                text-overflow: clip; /* No ellipsis for print */
+                text-align: center; /* Center justify title in print mode */
             }
-            .section-card {
-                box-shadow: none;
-                background-color: #fff;
-                padding: 0.5rem;
-                margin-bottom: 0.5rem;
-                border-radius: 0;
+            h2 {
+                font-size: 9.5pt; /* Adjusted H2 for print */
+                margin-bottom: 0.1rem; /* Reduced margin */
+                padding-bottom: 0.03rem; /* Reduced padding */
+                border-bottom: 1px solid #d1d5db; /* Lighter border for print */
             }
-            .section-card h3 {
-                font-size: 10pt;
-                margin-bottom: 0.5rem;
+            /* Specific print style for Contact Information heading to center align */
+            .contact-section h2 {
+                text-align: center; /* Center align the contact section heading in print */
             }
-            .section-card a {
-                padding: 0.3rem 0.8rem;
-                font-size: 8pt;
-                box-shadow: none;
-                border: 1px solid #d1d5db;
+            p, li, .contact-info, .summary-text, .skill-list-items, .university-info, .previous-experience-summary {
+                font-size: 6.8pt; /* Adjusted text size for print */
+                line-height: 0.95; /* Tighter line height for print */
             }
-            .project-placeholder {
-                box-shadow: none;
-                background-color: #fff;
-                padding: 0.5rem;
-                font-size: 8pt;
-                border: 1px dashed #d1d5db;
+            .job-title, .degree, .previous-job-title {
+                font-size: 7.2pt; /* Slightly larger for titles in print */
             }
-            .project-grid {
-                gap: 0.5rem;
+            .company-info, .previous-company-info {
+                font-size: 5.3pt; /* Smaller for company info in print */
+            }
+            .core-competencies li {
+                padding: 0.1rem 0.25rem; /* Reduced padding for competency items */
+                margin-bottom: 0.03rem; /* Reduced margin for competency items */
+            }
+            .achievements li {
+                margin-bottom: 0.1rem; /* Reduced margin for achievement items */
+            }
+            .experience-entry {
+                margin-bottom: 0.25rem; /* Reduced margin for experience entries */
+                padding-bottom: 0.25rem; /* Reduced padding */
+            }
+            .experience-details ul {
+                margin-left: 0.5rem; /* Reduced margin for experience details ul */
+            }
+            .experience-details li {
+                margin-bottom: 0.05rem; /* Reduced margin for experience details */
+            }
+            .technical-skills {
+                page-break-before: always; /* Force page break before Technical Skills */
+                padding-top: 0.3in; /* Increased extra padding at the top of Technical Skills section for print */
+            }
+            .technical-skills .skills-grid {
+                gap: 0.25rem; /* Reduced gap between skill cards */
+            }
+            .technical-skills .skill-card {
+                padding: 0.25rem; /* Reduced padding for skill cards */
+                border-width: 0.5px; /* Thinner border for skill cards */
+            }
+            .technical-skills .skill-category-title {
+                font-size: 6.8pt; /* Smaller font for skill card titles */
+                margin-bottom: 0.05rem; /* Reduced margin */
+            }
+            .technical-skills .skill-list-items {
+                font-size: 5.8pt; /* Even smaller font for skill list items */
+            }
+            .education-entry {
+                margin-bottom: 0.15rem; /* Slightly increased margin for education entries */
+                padding-bottom: 0.15rem; /* Slightly increased padding */
+            }
+            .university-info {
+                margin-bottom: 0.08rem; /* Slightly increased margin for university info */
+            }
+            .previous-experience-entry {
+                margin-bottom: 0.25rem; /* Slightly increased margin for previous experience entries */
+                padding-bottom: 0.25rem; /* Slightly increased padding */
+            }
+            .previous-experience-details ul {
+                margin-left: 0.6rem; /* Slightly increased margin for previous experience details ul */
+            }
+            .previous-experience-details li {
+                margin-bottom: 0.05rem; /* Slightly increased margin for previous experience details */
+            }
+            .contact-section .space-y-2 p {
+                margin-bottom: 0.05rem; /* Slightly increased spacing for contact links */
+            }
+
+            /* Hide the print button */
+            .print-button {
+                display: none !important; /* Added !important to ensure it's hidden */
             }
         }
+
     </style>
 </head>
 <body>
 
-    <div class="landing-container">
-        <header>
-            <h1></h1> </header>
+    <div class="resume-container">
+        <header class="resume-header">
+            <h1 class="text-4xl">Thomas Loftus III</h1>
+        </header>
 
-        <section class="resume-section section-card">
-            <h3>Thomas Loftus III</h3> <a href="/resume">View Resume</a>
+
+        <section class="section">
+            <h2>Professional Summary</h2>
+            <p class="summary-text">
+                Versatile and results-driven Systems Implementation Specialist with over 10 years of experience in public payroll tax accounting services, payroll payment processing software implementation, regulatory tax guidance, and business systems operations. Demonstrated exceptional success in leading organizational structural initiatives, developing digital workflow optimizations, maintaining Customer Record Management (CRM) systems, managing regulatory platforms to ensure employer compliance, and delivering comprehensive project performance analysis. Proven leader and collaborator in project organizational methods, partner relationship management, concierge-level client support services, and data processing enhancement implementation.
+            </p>
         </section>
 
-        <section class="contact-icons-section section-card">
-            <h2>Connect</h2> <div class="header-contact-info">
-                <a href="mailto:thomas@thomasloftus.com" class="text-2xl" aria-label="Email Thomas Loftus">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="tel:+17047058526" class="text-2xl" aria-label="Call Thomas Loftus">
-                    <i class="fas fa-phone"></i>
-                </a>
-                <a href="https://www.thomasloftus.com" target="_blank" rel="noopener noreferrer" class="text-2xl" aria-label="Visit Thomas Loftus's Website">
-                    <i class="fas fa-briefcase"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/thomasl609703704" target="_blank" rel="noopener noreferrer" class="text-2xl" aria-label="Visit Thomas Loftus's LinkedIn Profile">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://www.google.com/maps/place/Charlotte,+NC+28202" target="_blank" rel="noopener noreferrer" class="text-2xl" aria-label="Locate Charlotte, NC 28202 on Map">
-                    <i class="fas fa-map-marker-alt"></i>
-                </a>
+        <section class="section core-competencies">
+            <h2>Core Competencies</h2>
+            <ul>
+                <li>CRM & Database Analytics Platform Support</li>
+                <li>SLA Metric Analysis & Strategic Reporting</li>
+                <li>Cross-functional Collaboration & Strategic Partner Relations</li>
+                <li>Risk Protocol Implementation & Procedure Optimization</li>
+                <li>Workflow Modernization & Accountability Readiness</li>
+                <li>Quality Assurance Audit & Client Success</li>
+                <li>System Performance Monitoring & Enhancement Recommendations</li>
+                <li>Process Improvement & Automation</li>
+                <li>Knowledge Base Development & Resource Documentation Management</li>
+                <li>State & Local Tax Income Tax (SALT) & Employer Tax Expert</li>
+            </ul>
+        </section>
+
+        <section class="section achievements">
+            <h2>Key Achievements</h2>
+            <ul>
+                <li><strong>Modernized Workflows for Agility:</strong> Spearheaded digital transformation initiatives including process automation, digital controls, and paper reduction—cutting processing time, reducing errors, and enabling leaner operations.</li>
+                <li><strong>Strengthened Risk & Compliance Controls:</strong> Streamlined account setup and documentation processes to improve standardization, reduce compliance risk, and support growth.</li>
+                <li><strong>Empowered Data-Driven Leadership:</strong> Designed and implemented reporting frameworks, enhancing visibility into operational metrics and supporting agile decision-decision-making at the leadership level.</li>
+                <li><strong>Ensured Operational Continuity:</strong> Stepped into multiple departmental roles during major organizational transitions, ensuring uninterrupted service delivery and compliance.</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Professional Experience</h2>
+
+            <div class="experience-entry">
+                <h3 class="job-title">Senior Implementation Specialist</h3>
+                <p class="company-info">HomeWork Solutions Inc., Sterling, VA — April 2020 – October 2024</p>
+                <div class="experience-details">
+                    <ul>
+                        <li>Led end-to-end implementation of payroll software solutions, customizing employer payroll platforms and obtaining employer tax accounts to meet clients’ diverse remittance needs.</li>
+                        <li>Provided technical support for internal business systems, enhancing performance and ensuring reliability.</li>
+                        <li>Created and delivered knowledge materials to internal teams and clients, improving software adoption and usability.</li>
+                        <li>Conducted performance monitoring and made strategic recommendations to optimize workflows and system use through ticketing management software.</li>
+                        <li>Liaised with cross-functional teams and referral partners, enhancing system integration and client satisfaction.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-entry">
+                <h3 class="job-title">Enrollment Team Lead</h3>
+                <p class="company-info">HomeWork Solutions Inc., Sterling, VA — October 2016 – March 2020</p>
+                <div class="experience-details">
+                    <ul>
+                        <li>Staffed and supervised Enrollment Team during rapid company growth, scaling operations to meet increasing demand.</li>
+                        <li>Designed workflow improvements, significantly increasing task efficiency by reducing redundancies while ensuring tax compliance and timely filing.</li>
+                        <li>Managed employer tax account compliance, Know Your Client (KYC) identity verification protocols and process new client documentation.</li>
+                        <li>Developed and distributed weekly SLA and production performance reports for strategic leadership decision-making.</li>
+                        <li>Monitored operational systems and implemented enhancements to support internal controls and user accessibility.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-entry">
+                <h3 class="job-title">Production Team Support</h3>
+                <p class="company-info">HomeWork Solutions Inc., Sterling, VA — July 2014 – October 2016</p>
+                <div class="experience-details">
+                    <ul>
+                        <li>Processed client enrollments and onboarding tasks with high accuracy, ensuring timely and compliant employer Federal and State account setups.</li>
+                        <li>Maintained confidentiality and security of sensitive client data, including PII and financial information.</li>
+                        <li>Handled high volumes of client inquiries, consistently achieving high satisfaction ratings.</li>
+                        <li>Processed client enrollments and onboarding task, supported payroll team with new hire reporting and employment claims with a high degree of accuracy.</li>
+                        <li>Maintained confidentiality and security of sensitive client data, including PII and financial information.</li>
+                        <li>Simplified complex payroll tax calculations and obligations for clients, delivering exceptional customer service and support.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-entry">
+                <h3 class="job-title">Human Resources Intern</h3>
+                <p class="company-info">Yount, Hyde, & Barbour, CPA, Winchester, VA — May 2014 – July 2014</p>
+                <div class="experience-details">
+                    <ul>
+                        <li>Collaborated closely with the Human Resources Director in the redevelopment of the employee handbook, aligning it more closely with the firm’s culture.</li>
+                        <li>Familiarized with the handbook and provided project efficiency recommendations.</li>
+                        <li>Conducted research and recommended industry-specific trends and examples from leading organizations.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="section technical-skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-category-title">CRM & Support Platforms:</div>
+                    <div class="skill-list-items">Microsoft Access, Zendesk (Admin), HubSpot, Zoho, QuickBooks</div>
+                </div>
+                 <div class="skill-card">
+                    <div class="skill-category-title">System Integration & Development Tools:</div>
+                    <div class="skill-list-items">Azure, Xcode, Mermaid, Draw.io, GitHub</div>
+                </div>
+                 <div class="skill-card">
+                    <div class="skill-category-title">Project & Workflow Management:</div>
+                    <div class="skill-list-items">Asana, Trello, JIRA, SLA Monitoring, Microsoft Teams, Slack</div>
+                </div>
+                 <div class="skill-card">
+                    <div class="skill-category-title">Data Management & Analysis:</div>
+                    <div class="skill-list-items">SQL, pgAdmin, Visio, Microsoft Excel (large complex datasets)</div>
+                </div>
+                 <div class="skill-card">
+                    <div class="skill-category-title">E-Signature and Documentation:</div>
+                    <div class="skill-list-items">Adobe EchoSign, ShareFile, Microsoft Office Suite, Google Suite </div>
+                </div>
+                 <div class="skill-card">
+                    <div class="skill-category-title">Payroll & Compliance Tools:</div>
+                    <div class="skill-list-items">Symmetry Tax, IRS TIN Matching, EFTPS, Tax Agent Portals, PTIN, E-Verify</div>
+                </div>
             </div>
         </section>
 
-        <footer class="text-center text-sm text-gray-500 mt-8 print-hidden">
-            <p>© 2025 Thomas Loftus III. All rights reserved.</p>
-        </footer>
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education-entry">
+                <h3 class="degree">Bachelor of Science in Sociology</h3>
+                <p class="university-info">Shenandoah University, Winchester, VA — 2012 – 2014</p>
+                <p class="university-info">Minor in Business Administration and Management</p>
+            </div>
+             <div class="education-entry">
+                <h3 class="degree">Business Administration and Management</h3>
+                <p class="university-info">Old Dominion University, Norfolk, VA - 2005 – 2008</p>
+                <p class="university-info">Undergraduate Coursework</p>
+            </div>
+        </section>
+
+         <section class="section">
+            <h2>Previous Experience Summary</h2>
+            <p class="previous-experience-summary">
+                Over 5 years of experience in high-volume customer-facing environments within the retail, hospitality, and wine industries, demonstrating a strong work ethic, refined multitasking capabilities, and concierge-level client service. Developed foundational strengths in team leadership, service delivery, and adaptability under pressure.
+            </p>
+
+            <div class="experience-entry">
+                <h3 class="previous-job-title">Retail Sales Associate</h3>
+                <p class="previous-company-info">Columbia Sportswear, Leesburg, VA — July 2013 – July 2014</p>
+                 <div class="previous-experience-details">
+                    <ul>
+                        <li>Utilized sales skills and techniques to drive corporate goals.</li>
+                        <li>Effectively demonstrated exceptional customer service.</li>
+                        <li>Demonstrated strong communication skills and teamwork with management and associate.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-entry">
+                <h3 class="previous-job-title">Independent Wine Sales Consultant</h3>
+                <p class="previous-company-info">FlowWine, Inc., Fairfax, VA — April 2012 – August 2012</p>
+                 <div class="previous-experience-details">
+                    <ul>
+                        <li>Coordinated with brand representatives and event coordinators to align on goals, share insights, and deliver a unified and effective event experience.</li>
+                        <li>Utilized Salesforce to maintain inventory and executed sales reporting.</li>
+                        <li>Executed effective suggestive selling techniques.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-entry">
+                <h3 class="previous-job-title">Tasting Room Sales Assistant Manager</h3>
+                <p class="previous-company-info">Tarara Winery, Leesburg, VA — April 2010 – January 2012</p>
+                 <div class="previous-experience-details">
+                    <ul>
+                        <li>Wine & Spirit Education Trust (WSET) Certification Level 2.</li>
+                        <li>Led team by coordinating roles, resolving conflicts, and ensuring smooth cross-functional communication during high-volume events.</li>
+                        <li>Maintained current and accurate knowledge of current and future products.</li>
+                    </ul>
+                </div>
+            </div>
+
+             <div class="experience-entry">
+                <h3 class="previous-job-title">Line Cook</h3>
+                <p class="previous-company-info">Freemason Abbey Restaurant, Norfolk, VA — May 2008 – December 2009</p>
+                 <div class="previous-experience-details">
+                    <ul>
+                        <li>Collaborated closely with a dynamic team to ensure seamless service to achieve collective goals under stressful environments.</li>
+                        <li>Followed structured preparation procedures to ensure consistent, high-quality product.</li>
+                        <li>Demonstrated excellent time-management and multitasking skills.</li>
+                    </ul>
+                </div>
+            </div>
+
+         </section>
+
+         <section class="section contact-section">
+            <h2>Contact Information</h2>
+            <div class="space-y-2">
+                
+                <p><a href="https://maps.app.goo.gl/HEnP8BDJRmFZs1d48" target="_blank" rel="noopener noreferrer">Charlotte, NC 28202</a></p>
+                <p><a href="mailto:thomas@thomasloftus.com">Email</a></p>
+                <p><a href="https://www.thomasloftus.com" target="_blank" rel="noopener noreferrer">Website</a></p>
+                <p><a href="https://www.linkedin.com/in/thomasl609703704" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+            
+            </div>
+         </section>
+
+        <div class="flex justify-center mt-8 print-button">
+            <button onclick="window.print()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg soft-shadow">
+                Print Resume
+            </button>
+        </div>
 
     </div>
 
