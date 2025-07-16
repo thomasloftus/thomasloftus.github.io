@@ -6,36 +6,35 @@
      <title>Thomas Loftus III</title>
      <script src="https://cdn.tailwindcss.com"></script>
      <style>
-         /* Custom styles for professional color palette, soft shadows, and rounded corners */
          :root {
-             --primary-dark: #1f2937; /* Dark gray for text/headings */
-             --primary-light: #f9fafb; /* Light gray for background */
-             --secondary-accent: #3b82f6; /* Blue for accents/borders */
-             --card-bg: #ffffff; /* White for card backgrounds */
-             --section-bg: #e5e7eb; /* Light gray for section backgrounds */
+             --primary-dark: #1f2937;
+             --primary-light: #f9fafb;
+             --secondary-accent: #3b82f6;
+             --card-bg: #ffffff;
+             --section-bg: #e5e7eb;
          }
 
          body {
-             font-family: 'Inter', sans-serif; /* Using Inter font */
+             font-family: 'Inter', sans-serif;
              color: var(--primary-dark);
              line-height: 1.6;
              padding: 1rem;
              display: flex;
              justify-content: center;
-             align-items: flex-start; /* Align to top */
-             min-height: 100vh; /* Ensure it takes full viewport height */
+             align-items: flex-start;
+             min-height: 100vh;
              background-color: var(--primary-light);
          }
 
          .landing-container {
-             max-width: 800px; /* Max width for consistency with resume */
+             max-width: 800px;
              width: 100%;
              background-color: var(--card-bg);
              padding: 2rem;
              box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-             border-radius: 0.75rem; /* rounded-xl */
-             margin-top: 2rem; /* Add some margin from the top */
-             margin-bottom: 2rem; /* Add some margin at the bottom */
+             border-radius: 0.75rem;
+             margin-top: 2rem;
+             margin-bottom: 2rem;
          }
 
          h1, h2 {
@@ -45,33 +44,33 @@
          }
 
          h1 {
-             font-size: 2.5rem; /* Slightly larger for a landing page */
-             margin-bottom: 0.75rem; /* Adjusted margin below name */
+             font-size: 2.5rem;
+             margin-bottom: 0.75rem;
          }
 
          h2 {
-             font-size: 1.75rem; /* Slightly larger for section headings */
+             font-size: 1.75rem;
              margin-bottom: 1.5rem;
              padding-bottom: 0.75rem;
              border-bottom: 2px solid var(--secondary-accent);
          }
 
          .intro-text {
-             font-size: 1.125rem; /* text-lg */
+             font-size: 1.125rem;
              text-align: center;
              margin-bottom: 2rem;
-             color: #374151; /* gray-700 */
+             color: #374151;
          }
 
          .section-card {
              margin-bottom: 2rem;
              padding: 1.5rem;
              background-color: var(--section-bg);
-             border-radius: 0.5rem; /* rounded-lg */
+             border-radius: 0.5rem; 
              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
              display: flex;
              flex-direction: column;
-             align-items: center; /* Center content within the card */
+             align-items: center;
          }
 
          .section-card h3 {
@@ -94,8 +93,8 @@
          }
 
          .section-card a:hover {
-             background-color: #2563eb; /* Darker blue on hover */
-             transform: translateY(-2px); /* Slight lift effect */
+             background-color: #2563eb;
+             transform: translateY(-2px);
          }
 
          .project-placeholder {
@@ -104,84 +103,80 @@
              border-radius: 0.5rem;
              box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
              text-align: center;
-             color: #4b5563; /* gray-600 */
+             color: #4b5563;
              font-style: italic;
              margin-bottom: 1rem;
-             border: 1px dashed #d1d5db; /* Dashed border for placeholder */
+             border: 1px dashed #d1d5db;
          }
 
          .project-grid {
              display: grid;
-             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid for projects */
-             gap: 1.5rem; /* Space between project cards */
-             width: 100%; /* Ensure grid takes full width of parent */
+             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+             gap: 1.5rem;
+             width: 100%;
          }
 
-         /* Styling for the new circular icons */
          .contact-icons-section .header-contact-info {
              display: flex;
-             flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+             flex-wrap: wrap; 
              justify-content: center;
-             gap: 1.5rem; /* Space between icon circles */
+             gap: 1.5rem; 
              margin-top: 1rem;
          }
 
          .contact-icons-section .header-contact-info a {
-             color: var(--secondary-accent); /* Default color for icon and border */
+             color: var(--secondary-accent); 
              text-decoration: none;
              font-weight: normal;
              box-shadow: none;
              padding: 0;
-             transition: all 0.3s ease, transform 0.2s ease; /* Smooth transition for color and background */
-             display: flex; /* Flexbox for centering SVG */
-             align-items: center; /* Center SVG vertically */
-             justify-content: center; /* Center SVG horizontally */
-             width: 3.5rem; /* Fixed width for the circle */
-             height: 3.5rem; /* Fixed height for the circle */
-             border-radius: 50%; /* Make it a perfect circle */
-             border: 2px solid var(--secondary-accent); /* Outline border */
-             background-color: transparent; /* Default transparent background */
+             transition: all 0.3s ease, transform 0.2s ease;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             width: 3.5rem;
+             height: 3.5rem;
+             border-radius: 50%;
+             border: 2px solid var(--secondary-accent);
+             background-color: transparent;
          }
 
          .contact-icons-section .header-contact-info a:hover {
-             color: white; /* Icon color on hover */
-             background-color: var(--secondary-accent); /* Fill background on hover */
-             transform: translateY(-2px); /* Slight lift effect */
-             border-color: #2563eb; /* Darker border on hover for consistency */
+             color: white;
+             background-color: var(--secondary-accent);
+             transform: translateY(-2px);
+             border-color: #2563eb;
          }
 
-         /* Styling for inline SVGs inside the circles */
          .contact-icons-section .header-contact-info svg {
-             width: 1.75rem; /* Size of the icon within the circle */
+             width: 1.75rem;
              height: 1.75rem;
-             fill: currentColor; /* Inherit color from the parent 'a' tag */
+             fill: currentColor;
          }
 
-         /* Mobile-specific adjustments */
-         @media (max-width: 640px) { /* Targeting screens smaller than 640px (typical mobile) */
+         @media (max-width: 640px) { 
              .contact-icons-section .header-contact-info {
-                 gap: 0.75rem; /* Reduced gap between icons on mobile */
+                 gap: 0.75rem; 
              }
 
              .contact-icons-section .header-contact-info a {
-                 width: 3rem; /* Slightly smaller circle on mobile */
-                 height: 3rem; /* Slightly smaller circle on mobile */
+                 width: 3rem;
+                 height: 3rem; 
              }
 
              .contact-icons-section .header-contact-info svg {
-                 width: 1.5rem; /* Slightly smaller icon on mobile */
-                 height: 1.5rem; /* Slightly smaller icon on mobile */
+                 width: 1.5rem;
+                 height: 1.5rem;
              }
          }
 
-         /* Print specific styles - all print media settings disregarded as requested */
          @media print {
              body {
                  background-color: #fff;
                  padding: 0;
                  margin: 0;
                  display: block;
-                 min-height: auto; /* Reset min-height for print */
+                 min-height: auto;
              }
              .landing-container {
                  box-shadow: none;
@@ -193,7 +188,7 @@
                  display: none !important;
              }
              h1, h2 {
-                 text-align: left; /* Adjust text alignment for print */
+                 text-align: left;
                  margin-bottom: 0.5rem;
                  padding-bottom: 0.25rem;
                  font-size: 12pt;
@@ -239,7 +234,7 @@
          </header>
 
          <section class="resume-section section-card">
-             <h3>Thomas Loftus III</h3>
+             <h3>Thomas Loftus </h3>
              <a href="/resume">View Resume</a>
          </section>
 
@@ -270,7 +265,7 @@
          </section>
 
          <footer class="text-center text-sm text-gray-500 mt-8 print-hidden">
-             <p>© 2025 Thomas Loftus III. All rights reserved.</p>
+             <p>© 2025 Thomas Loftus  All rights reserved.</p>
          </footer>
 
      </div>
